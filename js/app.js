@@ -2,6 +2,18 @@ let amigos = []; // Cria uma variável do tipo array vazia de nome amigos.
 
 function adicionar(){
         let amigo = document.getElementById('nome-amigo'); //obtém o nome do amigo.
+
+        if (amigo.value == '') { // Instrução necessária para evitar adcionar espaços vazios como amigos.
+                alert('É necessário fornecer o nome de um amigo!')
+                return; // Interrompe a função.
+        }
+
+        if (amigos.includes(amigo.value)) { // Checa se algum nome já foi inscrito na lista de amigos, inibindo duplicações.
+                alert ('Nome já adicionado!');
+                return; // Interrompe a função.
+        }
+
+
         let lista = document.getElementById('lista-amigos'); //obtém a lista.
         amigos.push(amigo.value); // Adiciona o nome de uma amigo ao array amigos.
         
@@ -14,6 +26,11 @@ function adicionar(){
 }
 
 function sortear() {
+        if (amigos.length < 4){ // Se a quantidade de amigos for inferior a 4.
+            alert('Adicione pelo menos 4 amigos.');
+            return;
+        }
+
         embaralha(amigos);
         let sorteio = document.getElementById('lista-sorteio');
 
