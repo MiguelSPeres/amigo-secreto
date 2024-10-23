@@ -8,14 +8,14 @@ function adicionar(){
                 return; // Interrompe a função.
         }
 
-        if (amigos.includes(amigo.value)) { // Checa se algum nome já foi inscrito na lista de amigos, inibindo duplicações.
+        if (amigos.includes(amigo.value.toUpperCase)) { // Checa se algum nome já foi inscrito na lista de amigos, inibindo duplicações.
                 alert ('Nome já adicionado!');
                 return; // Interrompe a função.
         }
 
 
         let lista = document.getElementById('lista-amigos'); //obtém a lista.
-        amigos.push(amigo.value); // Adiciona o nome de uma amigo ao array amigos.
+        amigos.push(amigo.value.toUpperCase); // Adiciona o nome de uma amigo ao array amigos.
         
         if (lista.textContent == '') { //Se o conteúdo de texto, do elemeto HTML, de ID de nome lista, for vazio...
                 lista.textContent = amigo.value; //Coloque o nome do amigo na lista vazia.
@@ -60,6 +60,8 @@ function reiniciar () {
         document.getElementById('lista-amigos').innerHTML = '';
         document.getElementById('lista-sorteio').innerHTML = '';
 }
+        //      .toUpperCase: Formata o texto em caixa alta.
+
 
             /*      EXPLICANDO O FOR... for significa a conjunção "para"...........................................................
 
